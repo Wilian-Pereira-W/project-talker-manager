@@ -5,6 +5,6 @@ module.exports = (req, res, next) => {
             if (token.length !== 16) return res.status(401).json({ message: 'Token inválido' });
             next();
     } catch (error) {
-        return res.status(error.status).json({ message: error.message });
+        next(error); 
     }
 };

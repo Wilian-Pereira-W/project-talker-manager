@@ -10,10 +10,10 @@ module.exports = async (req, res, _next) => {
         const talker = parsedSpeaker.find((talkers) => talkers.id === Number(id));
         
         if (!talker) {
- return res.status(404).json({
+        return res.status(404).json({
             message: 'Pessoa palestrante não encontrada',
           }); 
-}
+        }
 
         return res.status(200).json(talker);
     } catch (error) {

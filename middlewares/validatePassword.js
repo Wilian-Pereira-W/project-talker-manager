@@ -13,6 +13,6 @@ module.exports = (req, res, next) => {
         }
         next();
     } catch (error) {
-        return res.status(error.status).json({ message: error.message });
+        next(error);
     }
 };

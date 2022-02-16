@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const speakers = require('./middlewares/ speakerList');
-const talker = require('./middlewares/spekerId');
+const talkers = require('./ getTalkerList');
+const talker = require('./getTalkerId');
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.get('/talker', speakers);
+app.get('/talker', talkers);
 
 app.get('/talker/:id', talker);
 

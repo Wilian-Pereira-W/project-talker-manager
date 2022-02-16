@@ -1,6 +1,6 @@
 const { readFile } = require('fs/promises');
 
-module.exports = async (_req, res, _next) => {
+module.exports = async (_req, res, next) => {
     try {
         const speaker = await readFile('./talker.json', 'utf-8');
 
@@ -8,6 +8,6 @@ module.exports = async (_req, res, _next) => {
 
         return res.status(200).json(parsedSpeaker);
     } catch (error) {
-        return res.status(error.status).json({ message: error.message });
+        next(error);
     }
 };

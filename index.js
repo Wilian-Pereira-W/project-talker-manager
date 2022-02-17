@@ -4,6 +4,7 @@ const talkers = require('./ getTalkerList');
 const talker = require('./getTalkerId');
 const login = require('./login');
 const createTalker = require('./createTalker');
+const editTalker = require('./editTalker');
 
 const { 
   validatePassword, 
@@ -41,6 +42,15 @@ validateTalk,
 validateData, 
 validateRate,
 createTalker);
+
+app.put('/talker/:id',
+validateToken, 
+validateAge,
+validateName,
+validateTalk, 
+validateData, 
+validateRate,
+editTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
